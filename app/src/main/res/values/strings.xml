@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MediumDemand_XML</string>
+    <string name="app_title">Medium Demand</string>
+    <string name="burger_button">Button</string>
+    <string name="first_post_title">My Bedroom</string>
+    <string name="first_post_posted">Posted 27/1-24 10:04</string>
+    <string name="second_post_title">My Garden</string>
+    <string-array name="dropdown_menu">
+        <item>Page 1</item>
+        <item>Page 2</item>
+        <item>Page 3</item>
+    </string-array>
+</resources>
