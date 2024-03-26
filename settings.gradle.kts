@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "LowDemand_XML"
 include(":app")
- 
+include(":app:benchmark")
