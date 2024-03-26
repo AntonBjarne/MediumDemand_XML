@@ -28,7 +28,7 @@ class ExampleStartupBenchmark {
 
     @Test
     fun startup() = benchmarkRule.measureRepeated(
-        packageName = "com.example.lowdemand_xml",
+        packageName = "com.example.mediumDemand_xml",
         metrics = listOf(StartupTimingMetric()),
         iterations = 10,
         startupMode = StartupMode.COLD
