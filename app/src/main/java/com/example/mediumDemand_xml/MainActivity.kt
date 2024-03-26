@@ -1,4 +1,4 @@
-package com.example.lowdemand_xml
+package com.example.mediumDemand_xml
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -15,7 +15,6 @@ import android.widget.ScrollView
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.marginStart
 
 
 class MainActivity : AppCompatActivity() {

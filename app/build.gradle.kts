@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.lowdemand_xml"
+    namespace = "com.example.mediumDemand_xml"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.lowdemand_xml"
+        applicationId = "com.example.mediumDemand_xml"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
