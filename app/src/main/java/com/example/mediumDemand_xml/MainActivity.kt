@@ -87,22 +87,15 @@ class MainActivity : AppCompatActivity() {
 
         for (i in 0 until numberOfPosts) {
             // Inflate the card layout
-            if(i%2 == 0){
-                val cardLayout = layoutInflater.inflate(R.layout.post1_layout, null) as ConstraintLayout
-                val imageView = cardLayout.findViewById<ImageView>(R.id.imageView)
-                imageView.setImageResource(R.drawable.photo3) // Set your image resource here
-                // Add the card layout to the linear layout inside the ScrollView
-                linearLayout2.addView(cardLayout)
-            }
-            else{
-                val cardLayout = layoutInflater.inflate(R.layout.post2_layout, null) as ConstraintLayout
-                val imageView = cardLayout.findViewById<ImageView>(R.id.imageView)
-                imageView.setImageResource(R.drawable.photo4) // Set your image resource here
-                // Add the card layout to the linear layout inside the ScrollView
-                linearLayout2.addView(cardLayout)
-            }
-
-
+            val cardLayout = layoutInflater.inflate(if (i % 2 == 0) R.layout.post1_layout else R.layout.post2_layout, null) as ConstraintLayout
+            val imageView = cardLayout.findViewById<ImageView>(R.id.imageView)
+            val imageViewIcon1 = cardLayout.findViewById<ImageView>(R.id.heartIcon)
+            val imageViewIcon2 = cardLayout.findViewById<ImageView>(R.id.shareIcon)
+            imageView.setImageResource(if (i % 2 == 0) R.drawable.photo3 else R.drawable.photo4) // Set your image resource here
+            imageViewIcon1.setImageResource (R.drawable.heart_121) // Set your image resource here
+            imageViewIcon2.setImageResource (R.drawable.share) // Set your image resource here
+            // Add the card layout to the linear layout inside the ScrollView
+            linearLayout2.addView(cardLayout)
         }
 
         spinner.adapter = adapter
