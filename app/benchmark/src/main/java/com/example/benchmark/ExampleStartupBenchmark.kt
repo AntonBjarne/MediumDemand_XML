@@ -1,8 +1,12 @@
 package com.example.benchmark
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.benchmark.macro.CompilationMode
+import androidx.benchmark.macro.ExperimentalMetricApi
 import androidx.benchmark.macro.FrameTimingMetric
 import androidx.benchmark.macro.MacrobenchmarkScope
+import androidx.benchmark.macro.PowerMetric
 import androidx.benchmark.macro.StartupMode
 import androidx.benchmark.macro.StartupTimingMetric
 import androidx.benchmark.macro.junit4.MacrobenchmarkRule
@@ -12,6 +16,7 @@ import androidx.test.uiautomator.Direction
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import perfetto.protos.AndroidMultiuserMetric
 
 /**
  * This is an example startup benchmark.
@@ -34,7 +39,7 @@ class ExampleStartupBenchmark {
     fun startup() = benchmarkRule.measureRepeated(
         packageName = "com.example.mediumDemand_xml",
         metrics = listOf(StartupTimingMetric()),
-        iterations = 10,
+        iterations = 30,
         startupMode = StartupMode.COLD
     ) {
         pressHome()
@@ -69,7 +74,7 @@ class ExampleStartupBenchmark {
     fun scrollRowTest() = benchmarkRule.measureRepeated(
         packageName = "com.example.mediumDemand_xml",
         metrics = listOf(FrameTimingMetric()),
-        iterations = 10,
+        iterations = 30,
         startupMode = StartupMode.COLD
     ){
         pressHome()
@@ -88,6 +93,7 @@ class ExampleStartupBenchmark {
 
         device.waitForIdle()
     }
+
 
     @Test
     fun openNav() = benchmarkRule.measureRepeated(
@@ -111,4 +117,21 @@ class ExampleStartupBenchmark {
 
         device.waitForIdle()
     }
+
+    @Test
+    fun allTest() = benchmarkRule.measureRepeated(
+        packageName = "com.example.mediumDemand_xml",
+        metrics = listOf(FrameTimingMetric()),
+        iterations = 1,
+        startupMode = StartupMode.COLD
+    ){
+        pressHome()
+        startActivityAndWait()
+        scrollPostList()
+        scrollRowList()
+    }
 }
+
+
+
+
